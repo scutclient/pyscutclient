@@ -2,7 +2,7 @@
 
 用法：
 
-`sudo python pyscutclient --username [username] --password [password] --iface [iface]`
+`sudo python pyscutclient.py --username [username] --password [password] --iface [iface]`
 
 需要[安装scapy](http://www.secdev.org/projects/scapy/doc/installation.html#platform-specific-instructions)
 
