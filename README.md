@@ -1,5 +1,7 @@
 # pyscutclient
 
+用Python+scapy把[scutclient](https://github.com/7forz/scutclient)重写了，主要是为了方便调试，只带有基本的认证功能，仅供测试使用。
+
 用法：
 
 `sudo python pyscutclient.py --username [username] --password [password] --iface [iface]`
