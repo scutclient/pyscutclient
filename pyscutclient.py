@@ -75,34 +75,34 @@ p_logoff = Ether(src=MY_MAC, dst=DSTMAC, type=0x888e)/EAPOL(version=1, type=2, l
 
 
 def send_start():
-	print 'Start.'
+	print 'SCUTclient: Start.'
 	sendp(p_start, verbose=0)   #静默发送
 
 def send_identity():
 	sendp(p_identity, verbose=0)
-	print 'Respond Identity.'
+	print 'SCUTclient: Respond Identity.'
 
 def send_md5():
 	sendp(p_md5, verbose=0)
-	print 'Respond MD5-Challenge.'
+	print 'SCUTclient: Respond MD5-Challenge.'
 
 def send_logoff():
 	sendp(p_logoff, verbose=0)
-	print 'Logoff.'
+	print 'SCUTclient: Logoff.'
 
 def sniff_handler(pkt):
 	pkts.append(pkt)
 	try:
 		if pkt.haslayer(EAP) and (pkt[EAP].code == EAP_REQUEST) and (pkt[EAP].type == EAP_TYPE_ID):   #避免pkt[EAP]不存在时出错
-			print 'Request Identity!'
+			print 'Server: Request Identity!'
 			send_identity()
 		elif pkt.haslayer(EAP) and (pkt[EAP].code == EAP_REQUEST) and (pkt[EAP].type == EAP_TYPE_MD5):
-			print 'Request MD5-Challenge!'
+			print 'Server: Request MD5-Challenge!'
 			send_md5()
 		elif pkt.haslayer(EAP) and (pkt[EAP].code == EAP_SUCCESS):
-			print 'Success.'
+			print 'Server: Success.'
 		elif pkt.haslayer(EAP) and (pkt[EAP].code == EAP_FAILURE):
-			print 'Failure. Will retry after 5 seconds.'
+			print 'Server: Failure.\nWill retry after 5 seconds.\n'
 			time.sleep(5)
 			send_start()
 	except BaseException, e:  #捕获所有异常
@@ -127,7 +127,6 @@ if __name__ == '__main__':
 		print 'Confirm your IP: %s' %MY_IP
 		print 'Confirm your Netmask: %s' %MY_NETMASK
 		print 'Confirm your Gateway: %s\n' %MY_GATEWAY
-		
 		
 		
 		send_start()
