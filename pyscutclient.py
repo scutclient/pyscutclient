@@ -113,7 +113,7 @@ def sniff_handler(pkt):
 
 if __name__ == '__main__':
 	if not username:
-		print '\nUsage: sudo python pyscutclient --username [username] --password [password] --iface [iface]'
+		print '\nUsage: sudo python pyscutclient.py --username [username] --password [password] --iface [iface]'
 		exit(1)
 	if not password:
 		password = username
