@@ -6,6 +6,12 @@
 
 `sudo python pyscutclient.py --username [username] --password [password] --iface [iface]`
 
-需要[安装scapy](http://www.secdev.org/projects/scapy/doc/installation.html#platform-specific-instructions)
+需要先[安装scapy的依赖包](http://www.secdev.org/projects/scapy/doc/installation.html#platform-specific-instructions)
+
+再安装scapy：
+
+`sudo apt-get install python-pip`
+
+`sudo pip install scapy`
 
 在Python 2.7 + 64bit Debian/Ubuntu/Deepin 测试成功
