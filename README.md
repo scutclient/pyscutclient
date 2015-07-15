@@ -2,11 +2,16 @@
 
 用Python+scapy把[scutclient](https://github.com/7forz/scutclient)重写了，主要是为了方便调试，只带有基本的认证功能，仅供测试使用。
 
+首先下载两个.py文件，保存到同一个目录下。
 用法：
 
 `sudo python pyscutclient.py --username [username] --password [password] --iface [iface]`
 
-需要先[安装scapy的依赖包](http://www.secdev.org/projects/scapy/doc/installation.html#platform-specific-instructions)
+其中iface如eth0、eht1。省略则默认为eth0。
+
+
+
+在使用前需要先[安装scapy的依赖包](http://www.secdev.org/projects/scapy/doc/installation.html#platform-specific-instructions)
 
 再安装scapy：
 
