@@ -7,7 +7,7 @@
 
 `sudo python pyscutclient.py --username [username] --password [password] --iface [iface]`
 
-其中iface如eth0、eht1。省略则默认为eth0。
+其中iface如eth0、eth1。省略则默认为eth0。
 
 
 
