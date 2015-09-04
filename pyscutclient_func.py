@@ -1,15 +1,11 @@
 #!/usr/bin/python
 #coding=utf8
 
-import binascii
 
 
 #把一个'0'~'255'的字符串或数字转换成十六进制的char 如 '49'->'\x31'  49->'\x31'
 def strtohexchar(s):
-	hexstr = hex(int(s)).replace('0x','')  #'49'->'31'
-	if len(hexstr) == 1:
-		hexstr = '0' + hexstr
-	return binascii.a2b_hex(hexstr)
+	return chr(int(s))
 
 
 def encode(base):
