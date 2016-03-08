@@ -19,4 +19,4 @@
 
 `sudo pip install scapy`
 
-在Python 2.7 + 64bit Debian/Ubuntu/Deepin 测试成功
+在Python 2.7 + 64bit Debian/Ubuntu 测试成功
