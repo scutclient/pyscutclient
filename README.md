@@ -5,7 +5,7 @@
 首先下载两个.py文件，保存到同一个目录下。
 用法：
 
-`sudo python pyscutclient.py --username [username] --password [password] --iface [iface]`
+`sudo python pyscutclient.py --username USERNAME [--password PASSWORD] [--iface IFACE]`
 
 其中iface如eth0、eth1。省略则默认为eth0。
 

@@ -9,14 +9,14 @@ import argparse
 
 #从用户输入获取username password iface
 parser = argparse.ArgumentParser(description='802.1x Auth Tool for SCUT')
-parser.add_argument('--username', default='')
-parser.add_argument('--password', default='')
-parser.add_argument('--iface', default='eth0')
+parser.add_argument('--username', default='', help='the username, cannot be blank')
+parser.add_argument('--password', default='', help='if no password is given, will be the same as username')
+parser.add_argument('--iface', default='eth0', help='the network interface of ethernet, depends on your computer, default is eth0')
 args = parser.parse_args()
 
 
 
-SAVEDUMP = 0   #dump pcap file
+SAVEDUMP = False   #dump pcap file
 
 #一些常量
 EAPOL_ASF = 4
@@ -113,7 +113,7 @@ def sniff_handler(pkt):
 
 if __name__ == '__main__':
 	if not username:
-		print '\nUsage: sudo python pyscutclient.py --username [username] --password [password] --iface [iface]'
+		print '\nUsage: sudo python pyscutclient.py --username USERNAME [--password PASSWORD] [--iface IFACE]'
 		exit(1)
 	if not password:
 		password = username
@@ -132,7 +132,7 @@ if __name__ == '__main__':
 		send_start()
 		sniff(filter="(ether proto 0x888e) and (ether host %s)" %MY_MAC, prn = sniff_handler)  #只捕获自己的MAC的802.1x，捕获到的包给handler处理
 	except KeyboardInterrupt, e:
-		print e, '停止'
+		print e, '用户手动停止'
 	finally:
 		send_logoff()
 		if SAVEDUMP:
