@@ -19,4 +19,4 @@
 
 `sudo pip install scapy`
 
-在Python 2.7 + 64bit Debian/Ubuntu 测试成功。如果不是，则可能需要手动打开pyscutclient.py，修改MY_IP等常量，方可成功认证。
+在Python 2.7/3.5 + 64bit Debian/Ubuntu 测试成功。如果不是，则可能需要手动打开pyscutclient.py，修改MY_IP等常量，方可成功认证。
